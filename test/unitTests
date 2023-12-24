@@ -1,0 +1,57 @@
+```javascript
+// Import the required libraries
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const mongoose = require('mongoose');
+const server = require('../../src/config/server');
+const logger = require('../../src/utils/logger');
+
+// Configure chai
+chai.use(chaiHttp);
+chai.should();
+
+describe("Unit Tests", () => {
+    // Before each test we empty the database
+    beforeEach((done) => {
+        mongoose.connection.collections.mycollection.drop(() => {
+            done();
+        });
+    });
+
+    // Test the /GET route
+    describe("/GET data", () => {
+        it("it should GET all the data", (done) => {
+            chai.request(server)
+                .get('/api/data')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('array');
+                    done();
+                });
+        });
+    });
+
+    // Test the /POST route
+    describe("/POST data", () => {
+        it("it should POST a data", (done) => {
+            let data = {
+                name: "Test Data",
+                description: "This is a test data"
+            }
+            chai.request(server)
+                .post('/api/data')
+                .send(data)
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('object');
+                    res.body.should.have.property('message').eql('Data successfully added!');
+                    res.body.data.should.have.property('name');
+                    res.body.data.should.have.property('description');
+                    done();
+                });
+        });
+    });
+
+    // More tests can be added here for other routes and functionalities
+});
+```

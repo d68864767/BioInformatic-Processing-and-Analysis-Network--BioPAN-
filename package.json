@@ -1,0 +1,45 @@
+{
+  "name": "BioPAN",
+  "version": "1.0.0",
+  "description": "A Node.js-based, distributed computing platform for processing and analyzing large-scale bioinformatics data.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "setup": "node scripts/setup.js",
+    "deploy": "node scripts/deploy.js",
+    "test": "mocha test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/BioPAN.git"
+  },
+  "keywords": [
+    "bioinformatics",
+    "distributed computing",
+    "genomic data analysis",
+    "machine learning",
+    "predictive modeling"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/BioPAN/issues"
+  },
+  "homepage": "https://github.com/yourusername/BioPAN#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3",
+    "dotenv": "^10.0.0",
+    "morgan": "^1.10.0",
+    "cors": "^2.8.5",
+    "body-parser": "^1.19.0",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {
+    "mocha": "^8.4.0",
+    "chai": "^4.3.4",
+    "sinon": "^10.0.0",
+    "eslint": "^7.26.0",
+    "prettier": "^2.3.0"
+  }
+}

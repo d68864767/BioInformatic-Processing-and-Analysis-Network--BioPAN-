@@ -1,0 +1,21 @@
+const express = require('express');
+const router = express.Router();
+
+const dataController = require('../controllers/dataController');
+const analysisController = require('../controllers/analysisController');
+
+// Data routes
+router.get('/data', dataController.getAllData);
+router.get('/data/:id', dataController.getDataById);
+router.post('/data', dataController.addData);
+router.put('/data/:id', dataController.updateData);
+router.delete('/data/:id', dataController.deleteData);
+
+// Analysis routes
+router.get('/analysis', analysisController.getAllAnalysis);
+router.get('/analysis/:id', analysisController.getAnalysisById);
+router.post('/analysis', analysisController.addAnalysis);
+router.put('/analysis/:id', analysisController.updateAnalysis);
+router.delete('/analysis/:id', analysisController.deleteAnalysis);
+
+module.exports = router;

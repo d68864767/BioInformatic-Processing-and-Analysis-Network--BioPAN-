@@ -1,0 +1,11 @@
+name:$src/api/middleware/requestLogger.js
+
+const logger = require('../../utils/logger');
+
+const requestLogger = (req, res, next) => {
+  logger.info(`Received ${req.method} request for ${req.originalUrl}`);
+  next();
+};
+
+module.exports = requestLogger;
+

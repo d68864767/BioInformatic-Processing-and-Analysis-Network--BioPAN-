@@ -1,0 +1,10 @@
+```javascript
+// File: public/js/main.js
+
+// This is the main JavaScript file for client-side scripts.
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    // Initialize your client-side scripts or libraries here
+});
+```

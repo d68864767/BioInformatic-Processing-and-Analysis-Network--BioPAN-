@@ -1,0 +1,25 @@
+```javascript
+const { check, validationResult } = require('express-validator');
+
+exports.validateDataRequest = [
+  // Validate and sanitize fields.
+  check('name').trim().isLength({ min: 1 }).escape().withMessage('Name must be specified.'),
+  check('sequence').trim().isLength({ min: 1 }).escape().withMessage('Sequence must be specified.'),
+
+  // Process request after validation and sanitization.
+  (req, res, next) => {
+    // Extract the validation errors from a request.
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      // There are errors. Render form again with sanitized values/error messages.
+      res.status(400).json({ errors: errors.array() });
+      return;
+    }
+    else {
+      // Data from form is valid.
+      next();
+    }
+  }
+];
+```

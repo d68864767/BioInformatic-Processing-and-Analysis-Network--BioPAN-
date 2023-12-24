@@ -1,0 +1,52 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioPAN - BioInformatic Processing and Analysis Network</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BioPAN</h1>
+            <p>BioInformatic Processing and Analysis Network</p>
+        </header>
+
+        <main>
+            <section id="data">
+                <h2>Data</h2>
+                <p>Here you can access and manage your genomic data.</p>
+                <button id="getAllData">Get All Data</button>
+                <div id="dataOutput"></div>
+            </section>
+
+            <section id="analysis">
+                <h2>Analysis</h2>
+                <p>Here you can access and manage your analysis results.</p>
+                <button id="getAllAnalysis">Get All Analysis</button>
+                <div id="analysisOutput"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2022 BioPAN. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('getAllData').addEventListener('click', function() {
+            // Call to dataController.getAllData
+            console.log('Get All Data button clicked');
+        });
+
+        document.getElementById('getAllAnalysis').addEventListener('click', function() {
+            // Call to analysisController.getAllAnalysis
+            console.log('Get All Analysis button clicked');
+        });
+    </script>
+</body>
+</html>
+```
